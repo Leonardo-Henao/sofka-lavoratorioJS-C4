@@ -1,7 +1,7 @@
 :root {
     --color-primary: #EBD91F;
     --color-secondary: #F2B50C;
-    --color-accent: #F24A0C;
+    --color-accent: #f24a0c;
 }
 
 body {
@@ -12,12 +12,11 @@ body {
 #container {
     display: flex;
     width: fit-content;
-    height: 97vh;
+    height: 100vh;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     flex-wrap: wrap;
-    gap: 5px;
 }
 
 .container_body {
@@ -33,31 +32,25 @@ body {
 
 .container_body-info-user {
     position: absolute;
-    top: -120px;
+    top: -100px;
     background: var(--color-primary);
-    padding: 30px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    padding: 20px;
     border-radius: 40px 40px 4px 4px;
     flex-direction: column;
 }
 
-.container_body-info-user-level {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    margin-bottom: 15px;
+.container_body-info-user-data {
+    display: inline-block;
+    border: 1px dotted var(--color-accent);
+    margin: 0px 5px;
+    padding: 5px 15px;
+    border-radius: 4px;
+    text-align: center;
 }
 
-.container_body-info-user-level span:nth-child(2) {
+.container_body-info-user-data span:nth-child(2) {
     font-size: 2rem;
-}
-
-.container_body-info-user .score_user {
-    font-size: 1.2rem;
-    font-weight: bold;
+    display: block;
 }
 
 .container_question,
@@ -136,6 +129,9 @@ body {
 }
 
 .container_question {
+    z-index: 10;
+    margin-top: -15px;
+    width: 60%;
     text-align: center;
     user-select: none;
     letter-spacing: 2px;
@@ -143,6 +139,132 @@ body {
     background: var(--color-primary);
     padding: 10px 40px;
     border-radius: 40px;
+}
+
+.dialog {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+
+    z-index: 100;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(0, 0, 0, 0.158);
+}
+
+.dialog_body {
+    max-width: 300px;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+
+    animation: enterDialog 0.3s ease-in-out 1;
+}
+
+@keyframes enterDialog {
+    0% {
+        transform: translateY(100%);
+    }
+}
+
+.dialog_body span,
+input,
+button {
+    display: block;
+}
+
+.dialog_body img {
+    width: 50%;
+    display: block;
+    margin: auto;
+}
+
+.dialog_body-title {
+    padding: 5px;
+    margin: 10px;
+}
+
+.dialog_body label,
+.dialog_body-title {
+    font-size: 1.5rem;
+    color: var(--color-accent);
+    margin-bottom: 30px;
+    display: block;
+}
+
+.dialog_body input {
+    margin: 0px auto 20px auto;
+    font-size: 1.3rem;
+    width: 80%;
+}
+
+.dialog_body button {
+    font-size: 1rem;
+    background: var(--color-accent);
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 4px;
+    margin: 0px 0px 0px auto;
+    box-shadow: 0px 0px 6px var(--color-accent);
+
+    transition: all 0.2s ease-in-out;
+}
+
+.dialog_body button:hover {
+    background: white;
+    border-radius: 6px;
+    color: var(--color-accent);
+}
+
+.toast {
+    z-index: 110;
+    position: fixed;
+    bottom: 120px;
+    left: 0px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.toast_body {
+    background: var(--color-accent);
+    padding: 10px 15px;
+    border-radius: 4px;
+    box-shadow: 1px 1px 10px var(--color-accent);
+    color: white;
+    font-weight: bold;
+
+    animation: enterDialog 0.3s ease-in-out 1;
+}
+
+.name_user {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: var(--color-accent);
+    font-weight: bold;
+}
+
+.img_trash {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 25px;
+
+    transition: all 0.2s ease-in-out;
+}
+
+.img_trash:hover {
+    transform: scale(1.05);
 }
 
 @media screen and (min-width: 810px) {
