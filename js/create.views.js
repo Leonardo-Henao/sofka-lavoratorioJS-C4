@@ -88,7 +88,7 @@ export const mView = () => {
         spanLevelUser.innerHTML = data[0]['level'];
         idQuestion = data[0]['id'];
 
-        bodyDocument.removeChild(processDialog);
+        if (processDialog != null) bodyDocument.removeChild(processDialog);
     }
 
     /** Verifica si el usuario tiene datos guardados y los recupera en el caso que los tenga */
